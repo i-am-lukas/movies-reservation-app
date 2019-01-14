@@ -15,3 +15,22 @@ returns session and a state of each seat
 PUT /seats/:id
 {reservation: [000, 001, ......, 150]};
 updates state of seats
+
+Updating a database:
+
+POST /movies
+{  
+name: name of the movie
+description: short description
+minAge: age restrictions
+poster: url of movie poster
+}
+add movie to the database
+
+POST /seats
+{
+name: name of the movie
+date: date of session
+time: hour
+}
+add a session to the database
