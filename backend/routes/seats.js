@@ -13,6 +13,7 @@ router.post("/", asyncMiddleware(async (req, res) => {
     const seat = new Schemas.Seats({
     name: req.body.name,
     date: req.body.date,
+    time: req.body.time,
     isOccupied: req.body.isOccupied
     });
     await seat.save();

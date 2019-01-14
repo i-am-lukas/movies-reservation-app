@@ -18,8 +18,7 @@ const seatsSchema = new Schema({
         maxlength: 25
     },
     date: {
-        type: Date,
-        default: Date.now,
+        type: String,
         required: true
     },
     time: {type: String,
