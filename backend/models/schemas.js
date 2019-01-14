@@ -1,37 +1,45 @@
-var mongoose = require('mongoose');
+var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
-const movieSchema = new Schema({
+const movieSchema = new Schema(
+  {
     name: String,
     description: String,
     minAge: Number,
-    poster: String,
-}, {
-        collection: 'movies'
-    })
+    poster: String
+  },
+  {
+    collection: "movies"
+  }
+);
 
-const seatsSchema = new Schema({
+const seatSchema = new Schema({
+  seatNumber: Number,
+  isOccupied: Boolean
+});
+
+const sessionSchema = new Schema(
+  {
     name: {
-        type:String,
-        required: true,
-        minlength: 3,
-        maxlength: 25
+      type: String,
+      required: true,
+      minlength: 3,
+      maxlength: 25
     },
     date: {
-        type: String,
-        required: true
+      type: String,
+      required: true
     },
-    time: {type: String,
-            required: true
-    },
-    isOccupied: {type: Array,
-                default: [false, false, false, false, false]
-    }
-}, {
-        collection: 'seats'
-    })
+    time: { type: String, required: true },
+    seats: [seatSchema]
+  },
+  {
+    collection: "session"
+  }
+);
 
 module.exports = {
-    Movie: mongoose.model('Movie', movieSchema),
-    Seats: mongoose.model('Seats', seatsSchema)
+  Movie: mongoose.model("Movie", movieSchema),
+  Session: mongoose.model("Session", sessionSchema),
+  Seat: mongoose.model("Seat", seatSchema)
 };

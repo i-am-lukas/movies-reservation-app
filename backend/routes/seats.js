@@ -1,42 +1,66 @@
-const express = require('express');
+const express = require("express");
 const Schemas = require("../models/schemas");
-const asyncMiddleware = require('../middleware/asyncMiddleware');
+const asyncMiddleware = require("../middleware/asyncMiddleware");
 const router = express.Router();
 
 const mongoose = require("mongoose");
 mongoose
-  .connect("mongodb://localhost/cinemaapp", { useNewUrlParser: true })
+  .connect(
+    "mongodb://localhost/cinemaapp",
+    { useNewUrlParser: true }
+  )
   .then(() => console.log("Connected to the MongoDB"))
   .catch(err => console.log("Could not connect to the database", err));
 
-router.post("/", asyncMiddleware(async (req, res) => {
-    const seat = new Schemas.Seats({
-    name: req.body.name,
-    date: req.body.date,
-    time: req.body.time,
-    isOccupied: req.body.isOccupied
+router.post(
+  "/",
+  asyncMiddleware(async (req, res) => {
+    const seats = [];
+    for (let i = 0; i <= 150; i++) {
+      seats.push({ seatNumber: i, isOccupied: false });
+    }
+    const seat = new Schemas.Session({
+      name: req.body.name,
+      date: req.body.date,
+      time: req.body.time,
+      seats: seats
     });
     await seat.save();
-    res.send(seat);
-}));
+    res.json({ seat: seat });
+  })
+);
 
-    router.get("/:id", asyncMiddleware(async (req, res) => {
-    const seats = await Schemas.Seats.findById(req.params._id);
-    if (!seats) return res.status(404).send("Wrong id. You cannot reserve a seat.");
-    res.send(todos);
-}));
+router.get(
+  "/",
+  asyncMiddleware(async (req, res) => {
+    const sessions = await Schemas.Session.find().select("-seats");
+    res.json(sessions);
+  })
+);
 
-router.put("/:id", asyncMiddleware(async (req, res) => {
-    const seats = await Schemas.Seats.findById(req.params._id);
-    if (!seats) return res.status(404).send("Wrong id. You cannot reserve a seat.");
-    await Schemas.Seats.updateOne({
-        _id: req.params.id
-    }, {
-            $set: {
-                isOccupied: req.body.isOccupied
-            }
-        });
+router.get(
+  "/:id",
+  asyncMiddleware(async (req, res) => {
+    const session = await Schemas.Session.findById(req.params.id);
+    if (!session)
+      return res.status(404).send("Wrong id. You cannot reserve a seat.");
+    res.json({ session: session });
+  })
+);
+
+router.put(
+  "/:id",
+  asyncMiddleware(async (req, res) => {
+    const session = await Schemas.Session.findById(req.params.id);
+    if (!session)
+      return res.status(404).send("Wrong id. You cannot reserve a seat.");
+    session.seats.map(seat => {
+      if (req.body.reservation.includes(seat.seatNumber)) {
+        seat.isOccupied = true;
+      }
+    });
     res.send("Success!");
-}));
+  })
+);
 
 module.exports = router;
