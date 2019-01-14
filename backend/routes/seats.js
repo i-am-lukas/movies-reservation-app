@@ -40,7 +40,7 @@ router.get(
   "/",
   asyncMiddleware(async (req, res) => {
     const sessions = await Schemas.Session.find().select("-seats");
-    res.json(sessions);
+    res.json({ sessions: sessions });
   })
 );
 
@@ -57,17 +57,22 @@ router.get(
 router.put(
   "/:id",
   asyncMiddleware(async (req, res) => {
+    let result = [];
     const session = await Schemas.Session.findByIdAndUpdate(req.params.id);
     if (!session) {
       return res.status(404).send("Wrong id. You cannot reserve a seat.");
     }
     session.seats.map(seat => {
       if (req.body.reservation.includes(seat.seatNumber)) {
+        if(!seat.isOccupied) {
         seat.isOccupied = true;
+        result.push(`Success! Seat ${seat.seatNumber} has been reserved.`);
+        }
+        else { return result.push(`Error! Seat ${seat.seatNumber} is already occupied!` )};
       }
     });
     await session.save();
-    res.send("Success!");
+    res.send(result);
   })
 );
 
