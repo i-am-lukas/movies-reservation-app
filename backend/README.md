@@ -839,7 +839,36 @@ PUT /seats/:id
 {reservation: [000, 001, ......, 150]};
 updates state of seats
 example of response:
-Success!
+{
+    "movie": {
+        "_id": "5c3c5d6ddc1ddd0574c9dbec",
+        "name": "Super nice movie",
+        "description": "funny movie",
+        "minAge": 18,
+        "poster": "big image",
+        "__v": 0
+    },
+    "session": [
+        {
+            "_id": "5c3c905e399850247003b889",
+            "date": "2019-01-20",
+            "time": "15:00",
+            "__v": 0
+        },
+        {
+            "_id": "5c3c91065d12c01818cdaf98",
+            "date": "2019-01-20",
+            "time": "18:00",
+            "__v": 0
+        },
+        {
+            "_id": "5c3c9ddd2fec15075c7853cd",
+            "date": "2019-01-20",
+            "time": "21:00",
+            "__v": 0
+        }
+    ]
+}
 
 Updating a database:
 

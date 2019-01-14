@@ -40,8 +40,9 @@ router.get(
   "/:id",
   asyncMiddleware(async (req, res) => {
     const movie = await Schemas.Movie.findById(req.params.id);
+    const session = await Schemas.Session.find({ name : movie.name}).select("-seats -name");
     if (!movie) return res.status(400).send("Movie is not available now.");
-    res.json({ movie: movie });
+    res.json({ movie: movie, session: session });
   })
 );
 
