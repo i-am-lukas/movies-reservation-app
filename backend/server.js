@@ -15,9 +15,13 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.get("/", function(req, res, next) {});
+app.get("/", function(req, res, next) {
+  next();
+});
 
-app.post("/", function(req, res, next) {});
+app.post("/", function(req, res, next) {
+  next();
+});
 
 app.use(express.static("src"));
 app.use(express.json());
@@ -25,6 +29,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/movies", movies);
 app.use("/seats", seats);
 app.use(error);
+app.get('*', function(req, res) {
+  res.send('Error 404. Not found');
+});
 
 let port = process.env.PORT || 4500;
 app.listen(port, () => {

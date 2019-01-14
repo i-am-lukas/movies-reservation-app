@@ -39,7 +39,7 @@ router.get(
 router.get(
   "/:id",
   asyncMiddleware(async (req, res) => {
-    const movie = await Schemas.Movie.findById(req.params._id);
+    const movie = await Schemas.Movie.findById(req.params.id);
     if (!movie) return res.status(400).send("Movie is not available now.");
     res.json({ movie: movie });
   })
