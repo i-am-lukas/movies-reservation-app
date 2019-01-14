@@ -16,8 +16,14 @@ router.post(
   "/",
   asyncMiddleware(async (req, res) => {
     const seats = [];
-    for (let i = 0; i <= 150; i++) {
-      seats.push({ seatNumber: i, isOccupied: false });
+    for (let i = 1; i <= 150; i++) {
+      if (i < 10) {
+        seats.push({ seatNumber: "00" + i, isOccupied: false });
+      } else if (i < 100) {
+        seats.push({ seatNumber: "0" + i, isOccupied: false });
+      } else {
+        seats.push({ seatNumber: i, isOccupied: false });
+      }
     }
     const seat = new Schemas.Session({
       name: req.body.name,
@@ -51,14 +57,16 @@ router.get(
 router.put(
   "/:id",
   asyncMiddleware(async (req, res) => {
-    const session = await Schemas.Session.findById(req.params.id);
-    if (!session)
+    const session = await Schemas.Session.findByIdAndUpdate(req.params.id);
+    if (!session) {
       return res.status(404).send("Wrong id. You cannot reserve a seat.");
+    }
     session.seats.map(seat => {
       if (req.body.reservation.includes(seat.seatNumber)) {
         seat.isOccupied = true;
       }
     });
+    await session.save();
     res.send("Success!");
   })
 );

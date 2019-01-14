@@ -14,7 +14,7 @@ const movieSchema = new Schema(
 );
 
 const seatSchema = new Schema({
-  seatNumber: Number,
+  seatNumber: String,
   isOccupied: Boolean
 });
 

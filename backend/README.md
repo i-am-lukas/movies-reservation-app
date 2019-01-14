@@ -4,11 +4,14 @@ GET /movies
 returns a list of movies available in our app.
 
 GET /movies/:id
-returns a list of displays single movie
+returns details of the movie
+
+GET /seats
+returns session of the movie
 
 GET /seats/:id
-returns state of each seat
+returns session and a state of each seat
 
 PUT /seats/:id
-{isOccupied: [false, false, false, ............, true, false]};
+{reservation: [000, 001, ......, 150]};
 updates state of seats
