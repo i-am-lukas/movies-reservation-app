@@ -8,7 +8,7 @@ const router = express.Router();
 
 mongoose
   .connect(
-    "mongodb://localhost/cinemaapp",
+    "mongodb://database-user:bazaDanych1234@ds157834.mlab.com:57834/movie-app",
     { useNewUrlParser: true }
   )
   .then(() => console.log("Connected to the MongoDB"))

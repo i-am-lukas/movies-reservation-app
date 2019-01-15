@@ -4,9 +4,10 @@ const asyncMiddleware = require("../middleware/asyncMiddleware");
 const router = express.Router();
 
 const mongoose = require("mongoose");
+
 mongoose
   .connect(
-    "mongodb://localhost/cinemaapp",
+    "mongodb://database-user:bazaDanych1234@ds157834.mlab.com:57834/movie-app",
     { useNewUrlParser: true }
   )
   .then(() => console.log("Connected to the MongoDB"))
