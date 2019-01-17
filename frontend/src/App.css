@@ -1,21 +1,24 @@
 body {
   background-image: url('http://suitelife.com/blog/wp-content/uploads/2017/12/empty-cinema.jpg');
   background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
 .App {
   text-align: center;
-  background-color: #2b2b2b;
-  margin: 0 15%
+  background-color: rgba(3, 3, 3, 0.4);
+  margin: 0;
+  /* background-image: url(./images/dark_wood.png); */
+  padding: 0 15%
 }
 
 .moviesContainer {
-  padding: 10px 40px ;
+  padding: 0px 40px 10px 40px ;
 }
 
 .movieStyle {
-  border: pink 1px dotted;
-  background-color: #8e2008;
+  border: black 1px dotted;
   margin: 20px;
-  /* height: 120px; */
+  height: 120px;
 }
