@@ -9,8 +9,8 @@ class singleSession extends React.Component {
 
     getHours = () => {
         return (
-            this.setState({hours: this.props.xxx[0].time}),
-            console.log(this.props.xxx)
+            this.setState({hours: this.props.sessions[0].time}),
+            console.log(this.props.sessions)
         )
         
     }
@@ -18,7 +18,7 @@ class singleSession extends React.Component {
     render() {
         return (
             <div>
-                <Button variant="outlined" color="default" style={this.styleButton()} onClick={ this.getHours }> {this.props.session} </Button>
+                <Button variant="outlined" color="default" style={this.styleButton()} onClick={ this.getHours }> {this.props.uniqueSession} </Button>
                 <div>{this.state.hours}</div>
             </div>
         )
