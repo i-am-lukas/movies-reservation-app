@@ -32,9 +32,11 @@ class singleSession extends React.Component {
     
     getHours = () => {
         if(this.state.clicked){
-        var toArray = Object.values(this.props.sessions)
+        var sorted = []
         var days = this.props.sessions.filter((toArray)=> toArray.date === this.props.uniqueSession);
-        return days.map((hour)=>(<Hour key={hour.time} hour={hour.time}/>))}
+        days.map((element)=>(sorted.push(element.time)))
+        sorted.sort()
+        return sorted.map((hour)=>(<Hour key={hour} hour={hour}/>))}
     }
 
     render() {
