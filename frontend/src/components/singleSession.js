@@ -21,9 +21,7 @@ class singleSession extends React.Component {
     }
 
     getHours = () => {
-        return (
-            <div>Hello</div>
-        )
+        return (console.log(`Got'em`))
         
     }
 }

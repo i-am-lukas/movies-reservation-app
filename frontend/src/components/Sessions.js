@@ -3,6 +3,7 @@ import SingleSession from './singleSession';
 
 
 class Sessions extends React.Component {
+    
     render() {
         return (
             <div style={{ flexBasis: '90%'}} >
@@ -12,12 +13,7 @@ class Sessions extends React.Component {
     }
 
     buttonContainer = () => {
-        return {
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'center',
-            // borderTop: '1px black solid'
-        }
+        return this.props.styling
     }
     
 
@@ -26,7 +22,6 @@ class Sessions extends React.Component {
         return toArray.map((session) => (
             <SingleSession key={session._id} session={session}/>
         ))
-        // return toArray
     }
     
 }

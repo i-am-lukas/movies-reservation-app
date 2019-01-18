@@ -5,33 +5,47 @@ import Sessions from './Sessions';
 class MovieItem extends React.Component {
     state = {
         movie: [],
-        sessions: []
+        sessions: [],
+        styling: {}
     }
 
     render() {
         return (
             <div style={this.wholeMovieDiv()} onClick={this.getSessions}>
-                    <img src={this.props.movie.poster} style={this.imageStyle()} alt='opis zdjecia'  />
-                    <div style={this.nameAge()}>
-                        <div style={this.movieName()}>{this.props.movie.name}</div>
+                    <div style={{display: 'flex', flexBasis: '100%'}}>
+                        <img src={this.props.movie.poster} style={this.imageStyle()} alt='opis zdjecia'  />
+                        <div style={this.name()}>
+                            <div style={this.movieName()}>{this.props.movie.name}</div>
+                        </div>
+                        <div style={ this.description() }>
+                            <span style={{ fontSize: '20px', fontWeight: '800' }}> Description: </span>
+                            <br /> <br />
+                            {this.props.movie.description}
+                            <div style={this.requiredAge()}>Required age: {this.props.movie.minAge}</div>
+                        </div> 
                     </div>
-                    <div style={ this.description() }>
-                        <span style={{ fontSize: '20px', fontWeight: '800' }}> Description: </span>
-                        <br /> <br />
-                        {this.props.movie.description}
-                        <div style={this.requiredAge()}>Required age: {this.props.movie.minAge}</div>
-                    </div>
-                    <Sessions sessions={this.state.sessions}/>
+                    <Sessions sessions={this.state.sessions} styling={this.state.styling}/>
                     
             </div>
         )
     }
 
     getSessions = (prevProps) => {
+        const dateContainerStyle = {
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'center',
+            borderTop: '1px black solid',
+            marginTop: '20px'
+        }
+
         if(prevProps !== this.state.sessions)
         axios.get(`http://localhost:4500/movies/${this.props.movie._id}`)
             .then(res => this.setState({ movie: res.data.movie, sessions: res.data.session }))
-            .then(() => console.log(this.state.sessions))
+            // .then(() => console.log(this.state.sessions))
+            .then(this.setState({styling: dateContainerStyle}))
+
+        
     }
 
     //ciekawy sposob zapisywania styli w componencie (jako f-cja)
@@ -48,12 +62,13 @@ class MovieItem extends React.Component {
         }
     }
 
-    nameAge = () => {
+    name = () => {
         return {
             display: 'flex', 
             justifyContent: 'space-around',
             paddingRight: '20px',
-            flexBasis: '25%',
+            flexBasis: '20%', 
+            flexShrink: '0'
         }
     }
 
@@ -64,7 +79,8 @@ class MovieItem extends React.Component {
             margin: '0 20px',
             flexBasis: 'auto',
             alignSelf: 'center',
-            border: '1px solid black'
+            border: '1px solid black',
+            flexShrink: '0'
         }
     }
 
@@ -75,7 +91,7 @@ class MovieItem extends React.Component {
             letterSpacing: '1px',
             lineHeight: '36px',
             wordSpacing: '-10px', 
-            alignSelf: 'center'
+            alignSelf: 'center',
         }
     }
 
@@ -84,10 +100,11 @@ class MovieItem extends React.Component {
             textAlign: 'left',
             padding: '20px',
             borderLeft: '1px solid black',
-            flexBasis: '50%',
+            flexBasis: 'auto',
             fontFamily: 'Dosis, sans-serif',
             fontSize: '16px',
-            alignSelf: 'center'
+            alignSelf: 'center',
+            flexShrink: '2'
         }
     }
 
