@@ -10,7 +10,11 @@ class singleSession extends React.Component {
     }
     
     buttonContainer = () => {
-         return this.props.styling
+         return (
+            this.props.styling,
+            {margin: '0px'}
+            )
+         
     }
     
     styleButton = () => {
@@ -42,6 +46,15 @@ class singleSession extends React.Component {
         )
     }
     
+
+    styleButton = () => {
+        return {
+            border: '2px black solid',
+            fontSize: '16px',
+            fontWeight: '600',
+            margin: '20px 20px 0 20px'
+        }
+    }
 
     
 

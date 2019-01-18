@@ -36,7 +36,7 @@ class MovieItem extends React.Component {
             flexDirection: 'row',
             justifyContent: 'center',
             borderTop: '1px black solid',
-            marginTop: '20px',
+            margin: '20px',
             flexWrap: 'wrap'
         }
 
