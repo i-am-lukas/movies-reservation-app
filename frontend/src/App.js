@@ -6,7 +6,8 @@ import Movies from './components/Movies';
 
 class App extends React.Component {
   state = {
-    movies: []
+    movies: [],
+    seats: []
   }
 
   // Zbiera response i wkłada go wewnątrz tabeli w state.movies
