@@ -21,9 +21,7 @@ class MovieItem extends React.Component {
                         {this.props.movie.description}
                         <div style={this.requiredAge()}>Required age: {this.props.movie.minAge}</div>
                     </div>
-                    <div>
-                        <Sessions sessions={this.state.sessions}/>
-                    </div>
+                    <Sessions sessions={this.state.sessions}/>
                     
             </div>
         )
@@ -35,7 +33,7 @@ class MovieItem extends React.Component {
             .then(res => this.setState({ movie: res.data.movie, sessions: res.data.session }))
             .then(() => console.log(this.state.sessions))
     }
-    
+
     //ciekawy sposob zapisywania styli w componencie (jako f-cja)
     wholeMovieDiv = () => {
         return {
@@ -45,7 +43,8 @@ class MovieItem extends React.Component {
             backgroundColor: '#b73135',
             padding: '15px 5px',
             fontFamily: 'Open Sans, sans-serif',
-            justifyContent: 'space-around'
+            justifyContent: 'space-around',
+            flexWrap: 'wrap'
         }
     }
 
