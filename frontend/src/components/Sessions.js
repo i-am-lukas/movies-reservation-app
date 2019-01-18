@@ -18,9 +18,14 @@ class Sessions extends React.Component {
     
 
     mapIt = () => {
+        var uniqueSessions = [];
+        var mySet = new Set();
         const toArray = Object.values(this.props.sessions)
-        return toArray.map((session) => (
-            <SingleSession key={session._id} session={session}/>
+        toArray.map((session)=> (mySet.add(session.date)));
+        // console.log(uniqueSessions)
+        uniqueSessions = Array.from(mySet).sort();
+        return uniqueSessions.map((session) => (
+            <SingleSession key={this.props.sessions._id} session={session}  xxx={this.props.sessions}/>
         ))
     }
     

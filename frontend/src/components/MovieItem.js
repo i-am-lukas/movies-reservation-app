@@ -6,7 +6,7 @@ class MovieItem extends React.Component {
     state = {
         movie: [],
         sessions: [],
-        styling: {}
+        styling: {},
     }
 
     render() {
@@ -43,7 +43,6 @@ class MovieItem extends React.Component {
         if(prevProps !== this.state.sessions)
         axios.get(`http://localhost:4500/movies/${this.props.movie._id}`)
             .then(res => this.setState({ movie: res.data.movie, sessions: res.data.session }))
-            // .then(() => console.log(this.state.sessions))
             .then(this.setState({styling: dateContainerStyle}))
 
         
