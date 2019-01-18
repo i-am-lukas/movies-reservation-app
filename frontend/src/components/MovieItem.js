@@ -36,7 +36,8 @@ class MovieItem extends React.Component {
             flexDirection: 'row',
             justifyContent: 'center',
             borderTop: '1px black solid',
-            marginTop: '20px'
+            marginTop: '20px',
+            flexWrap: 'wrap'
         }
 
         if(prevProps !== this.state.sessions)
