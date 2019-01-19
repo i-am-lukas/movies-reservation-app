@@ -121,7 +121,7 @@ class MovieItem extends React.Component {
             fontFamily: 'Dosis, sans-serif',
             fontSize: '16px',
             alignSelf: 'center',
-            flexShrink: '2'
+            flexGrow: '2'
         }
     }
 
