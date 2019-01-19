@@ -3,7 +3,13 @@ import Button from '@material-ui/core/Button';
 
 class Seats extends React.Component {
     render(){
-        return
+        return(
+            <div>
+                <div>siedzonka</div>
+                <div>legenda</div>
+                <Button>Rezerwuj</Button>
+            </div>
+        )
     }
 }
 
