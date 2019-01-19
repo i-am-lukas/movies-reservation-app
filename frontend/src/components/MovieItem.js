@@ -8,7 +8,8 @@ class MovieItem extends React.Component {
         movie: [],
         sessions: [],
         styling: {},
-        seats: []
+        seats: [],
+        renderSeats: false
     }
 
     render() {
@@ -28,20 +29,22 @@ class MovieItem extends React.Component {
                     </div>
                     <div style={{ flexBasis: '100%'}}>
                         <Sessions sessions={this.state.sessions} styling={this.state.styling} seats={this.seats}/>
-                        <div></div>
+                        <div>{this.renderSeats()}</div>
                     </div>
             </div>
         )
     }
 
+    renderSeats = () => {
+        if (this.state.renderSeats) return <Seats seats/>
+    }
+
     seats = (id) => {
+        this.setState({renderSeats: true})
         console.log('Hour was clicked and triggered function!')
         axios.get(`http://localhost:4500/seats/${id}`)
-            .then(res => console.log(res.data.session.seats))
-        //     .then(res => this.setState({
-        //         seats: res.data.session.seats
-        //     }))
-        //     .then(console.log(this.state.seats))
+            .then(res => this.setState({seats: res.data.session.seats}))
+        console.log(this.state.seats)
     }
 
     getSessions = (prevProps) => {
