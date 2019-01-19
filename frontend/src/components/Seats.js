@@ -65,14 +65,12 @@ class Seats extends React.Component {
             let array = this.state.reservation
             array.push(seatNumber)
             this.setState({reservation: array})
-            console.log(this.state.reservation)
             return
         }
         else{
             let array = this.state.reservation
             array.splice(array.indexOf(seatNumber), 1)
             this.setState({reservation: array})
-            console.log(this.state.reservation)
             return
         }
     }
