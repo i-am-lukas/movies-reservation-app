@@ -11,6 +11,8 @@ class SingleSeat extends React.Component{
         return <button onClick={this.handleClick} style={this.styleSeat()}>{this.props.number}</button>
     }
 
+    
+
     handleClick = () => {
         if (this.props.seat.isOccupied === true) return
         else if (this.state.reserve === false){

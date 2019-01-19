@@ -21,9 +21,18 @@ class Seats extends React.Component {
                 <span style={{backgroundColor: 'rgb(255, 65, 54)'}}>X</span>-wybrane miejsce <br />
                 <span style={{backgroundColor: '#18191e'}}>X</span>-miejsce zajęte
                 </div>
-                <Button onClick={this.sendReservations}>Rezerwuj</Button>
+                <Button style={this.styleBtn()} onClick={this.sendReservations}>Rezerwuj</Button>
             </div>
         )
+    }
+
+    styleBtn = () => {
+        return {
+            padding: '3px',
+            border: '1px solid black',
+            borderRadius: '10%',
+            marginTop: '10px'
+        }
     }
 
     sendReservations = () => {
@@ -65,7 +74,7 @@ class Seats extends React.Component {
             alignItems: 'center',
             paddingTop: '15px',
             paddingBottom: '15px',
-            gridGap: '2px',
+            gridGap: '2px 2px',
             
     }
     
