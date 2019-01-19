@@ -5,7 +5,7 @@ import axios from 'axios';
 class Hour extends React.Component {
     state = {
         seats: [],
-        id: ''
+        id: this.props.hour._id
     }
     
     render(){
@@ -17,17 +17,8 @@ class Hour extends React.Component {
     }
 
     getId = () => {
-        this.setState({id: this.props.hour._id})
         this.props.seats(this.state.id)
     }
-
-    // getSeats = () => {
-    //     // console.log(this.props.hour)
-    //     axios.get(`http://localhost:4500/seats/${this.props.hour._id}`)
-    //         // .then(res => console.log(res.data.session.seats))
-    //         .then(res => this.setState({seats: res.data.session.seats }))
-    //         .then(console.log(this.state.seats))
-    // }
     
     styleButton = () => {
         return {
