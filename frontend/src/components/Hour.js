@@ -30,7 +30,8 @@ handleBlur = () => {
     }
     
     styleButton = () => {
-        return {
+
+        if (!this.state.focused) return {
             border: '2px black solid',
             fontSize: '16px',
             fontWeight: '600',
