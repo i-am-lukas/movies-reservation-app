@@ -53,7 +53,7 @@ class singleSession extends React.Component {
     render() {
         return (
             <div>
-                <Button variant="outlined" color="default" style={this.styleButton()} onClick={this.handleClick} > {this.props.uniqueSession} <i class="arrow-down"></i> </Button>
+                <Button variant="outlined" color="default" style={this.styleButton()} onClick={this.handleClick} > {this.props.uniqueSession} <i className="arrow-down"></i> </Button>
                 <div style={this.buttonContainer()}> {this.getHours()} </div>
             </div>
         )

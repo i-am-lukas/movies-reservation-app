@@ -28,21 +28,17 @@ handleBlur = () => {
     styleButton = () => {
 
         if(!this.state.focused)return {
-            borderBottom: '2px black solid',
-            borderLeft: '2px black solid',
-            borderRight: '2px black solid',
+            border: '2px black solid',
             fontSize: '16px',
             fontWeight: '600',
             marginTop: '2px'
         }
 
         else return {
-            borderBottom: '2px black solid',
-            borderLeft: '2px black solid',
-            borderRight: '2px black solid',
+            border: '2px black solid',
             fontSize: '16px',
             fontWeight: '600',
-            margin: '0px',
+            marginTop: '2px',
             backgroundColor: '#8F2629'
         }
     }
