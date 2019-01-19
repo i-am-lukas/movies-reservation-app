@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import SingleSeat from './SIngleSeat'
+import SingleSeat from './SIngleSeat';
+import axios from 'axios';
 
 class Seats extends React.Component {
     state = {
@@ -15,9 +16,13 @@ class Seats extends React.Component {
                     {this.props.seats.map(this.seatNumber)}
                 </div>
                 <div>legenda</div>
-                <Button>Rezerwuj</Button>
+                <Button onClick={this.sendReservations}>Rezerwuj</Button>
             </div>
         )
+    }
+
+    sendReservations = () => {
+        axios.put(`http://localhost:4500/seats/${this.props.sessionId}`, { reservation: this.state.reservation })
     }
 
     seatNumber = (seat) =>{
