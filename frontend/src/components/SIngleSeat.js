@@ -3,7 +3,7 @@ import React from 'react';
 class SingleSeat extends React.Component{
 
     render() {
-        return <div style={this.styleSeat()}>1</div>
+        return <div style={this.styleSeat()}>{this.props.number}</div>
     }
 
     styleSeat = () => {
