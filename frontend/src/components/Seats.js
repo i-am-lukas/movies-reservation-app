@@ -12,6 +12,7 @@ class Seats extends React.Component {
     render(){
         return(
             <div>
+                <div style={this.styleScreen()}>SCREEN</div>
                 <div style={this.wholeGrid()}>
                     {this.props.seats.map(this.seatNumber)}
                 </div>
@@ -24,6 +25,15 @@ class Seats extends React.Component {
                 <Button style={this.styleBtn()} onClick={this.sendReservations}>Rezerwuj</Button>
             </div>
         )
+    }
+
+    styleScreen = () => {
+        return {
+            borderBottom: 'black solid 2px',
+            width: '342px',
+            margin: 'auto',
+            marginTop: '10px'
+        }
     }
 
     styleBtn = () => {
@@ -72,7 +82,6 @@ class Seats extends React.Component {
             display: 'grid',
             gridTemplateColumns: '20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px ',
             gridTemplateRows: '20px 20px 20px 20px 20px 20px 20px 20px 20px 20px  ',
-            borderTop: 'solid 1px black',
             width: 'auto',
             justifyContent: 'center',
             justifyItems: 'center',

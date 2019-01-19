@@ -37,7 +37,11 @@ class MovieItem extends React.Component {
     }
 
     renderSeats = () => {
-        if (this.state.renderSeats) return <Seats seats={this.state.seats} sessionId={this.state.sessionId}/>
+        if (this.state.renderSeats) return (
+            <React.Fragment>
+                <div style={{borderBottom: 'black solid 1px', width: 'auto'}}></div>
+                <Seats seats={this.state.seats} sessionId={this.state.sessionId}/>
+            </React.Fragment>)
     }
 
     seats = (id) => {
