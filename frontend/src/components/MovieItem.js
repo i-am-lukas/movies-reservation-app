@@ -10,7 +10,7 @@ class MovieItem extends React.Component {
         styling: {},
         seats: [],
         renderSeats: false,
-        sessionId:''
+        sessionId: ''
     }
 
     render() {
@@ -37,9 +37,7 @@ class MovieItem extends React.Component {
     }
 
     renderSeats = () => {
-        if (this.state.renderSeats) return <Seats seats={this.state.seats}/>
-            
-            
+        if (this.state.renderSeats) return <Seats seats={this.state.seats} sessionId={this.state.sessionId}/>
     }
 
     seats = (id) => {
