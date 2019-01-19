@@ -16,9 +16,9 @@ class Hour extends React.Component {
         )
     }
 
-handleBlur = () => {
-    this.setState({focused:false})
-}
+    handleBlur = () => {
+        this.setState({focused:false})
+    }
 
     getId = () => {
         console.log(this.state.id)
