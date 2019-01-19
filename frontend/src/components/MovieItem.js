@@ -26,11 +26,21 @@ class MovieItem extends React.Component {
                         </div> 
                     </div>
                     <div style={{ flexBasis: '90%'}}>
-                        <Sessions sessions={this.state.sessions} styling={this.state.styling} seats={this.state.seats}/>
-                        <div>{this.state.seats}</div>
+                        <Sessions sessions={this.state.sessions} styling={this.state.styling} seats={this.seats}/>
+                        <div></div>
                     </div>
             </div>
         )
+    }
+
+    seats = (id) => {
+        console.log('Hour was clicked and triggered function!')
+        axios.get(`http://localhost:4500/seats/${id}`)
+            .then(res => console.log(res.data.session.seats))
+        //     .then(res => this.setState({
+        //         seats: res.data.session.seats
+        //     }))
+        //     .then(console.log(this.state.seats))
     }
 
     getSessions = (prevProps) => {

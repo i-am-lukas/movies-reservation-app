@@ -47,7 +47,7 @@ class singleSession extends React.Component {
             return comparison
         }
         sorted.sort(compare)
-        return sorted.map((arrOfObj)=>(<Hour key={arrOfObj.time} hour={arrOfObj} seats={this} sessions={this.props.sessions}/>))}
+        return sorted.map((arrOfObj)=>(<Hour key={arrOfObj.time} hour={arrOfObj} seats={this.props.seats} sessions={this.props.sessions}/>))}
     }
 
     render() {
