@@ -3,6 +3,7 @@ import React from 'react';
 class SingleSeat extends React.Component{
 
     state = {
+        seatNumber: this.props.seat.seatNumber,
         reserve: false
     }
 
@@ -14,6 +15,7 @@ class SingleSeat extends React.Component{
         if (this.props.seat.isOccupied === true) return
         else if (this.state.reserve === false){
             this.setState({reserve: true})
+            this.props.reserveSeat(this.state.seatNumber, this.state.reserve)
         }
         else {
             this.setState({reserve: false})

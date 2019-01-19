@@ -4,6 +4,7 @@ import SingleSeat from './SIngleSeat'
 
 class Seats extends React.Component {
     state = {
+        reservation: [],
         seats: this.props.seats
     }
 
@@ -24,11 +25,24 @@ class Seats extends React.Component {
         var number = this.props.seats.indexOf(seat)+1
         for(var i=1; i<=columns; i++){
             if(number<=columns*i){
-                return <SingleSeat key= {number*i} seat={seat} number={number-columns*(i-1)} />
+                return <SingleSeat reserveSeat={this.reserveSeat} key= {number*i} seat={seat} number={number-columns*(i-1)} />
             }
         } 
     }
     
+    reserveSeat = (seatNumber, reserved) => {
+        if(reserved){
+            this.state.reservation.push(seatNumber)
+            console.log(this.state.reservation)
+            return
+        }
+        else{
+            this.state.reservation.splice(this.state.reservation.indexOf(seatNumber), 1)
+            console.log(this.state.reservation)
+            return
+        }
+    }
+
     wholeGrid = () => {
         return {
             display: 'grid',
