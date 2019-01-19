@@ -79,7 +79,8 @@ class Seats extends React.Component {
             alignItems: 'center',
             paddingTop: '15px',
             paddingBottom: '15px',
-            gridGap: '2px 2px',
+            gridGap: '3px 3px',
+
             
     }
     

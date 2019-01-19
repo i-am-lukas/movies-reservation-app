@@ -31,16 +31,25 @@ class SingleSeat extends React.Component{
             backgroundColor: '#18191e',
             color: '#DDDDDD',
             borderRadius: '20%',
+            alignSelf: 'stretch',
+            padding: '0px',
+            width: '20px'
        } 
 
        else if(this.state.reserve===false) return {
            backgroundColor: '#2ECC40',
                borderRadius: '20%',
+               alignSelf: 'stretch',
+               padding: '0px',
+               width: '20px'
        }
 
        else return {
             backgroundColor: '#FF4136',
             borderRadius: '20%',
+            alignSelf: 'stretch',
+            padding: '0px',
+            width: '20px'
        }
     }
 }
