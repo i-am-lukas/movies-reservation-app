@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Sessions from './Sessions';
+import Seats from './Seats';
 
 class MovieItem extends React.Component {
     state = {
@@ -12,13 +13,13 @@ class MovieItem extends React.Component {
 
     render() {
         return (
-            <div class="whole-movie-div" style={this.wholeMovieDiv()} onClick={this.getSessions}>
-                    <div class="movie-content-div" style={{display: 'flex', flexBasis: '100%'}}>
-                        <img class="image-style" src={this.props.movie.poster} style={this.imageStyle()} alt='opis zdjecia'  />
+            <div className="whole-movie-div" style={this.wholeMovieDiv()} onClick={this.getSessions}>
+                    <div className="movie-content-div" style={{display: 'flex', flexBasis: '100%'}}>
+                        <img className="image-style" src={this.props.movie.poster} style={this.imageStyle()} alt='opis zdjecia'  />
                         <div style={this.name()}>
-                            <div class="movie-name" style={this.movieName()}>{this.props.movie.name}</div>
+                            <div className="movie-name" style={this.movieName()}>{this.props.movie.name}</div>
                         </div>
-                        <div class="movie-description" style={ this.description() }>
+                        <div className="movie-description" style={ this.description() }>
                             <span style={{ fontSize: '20px', fontWeight: '800' }}> Description: </span>
                             <br /> <br />
                             {this.props.movie.description}
