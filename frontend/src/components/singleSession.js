@@ -53,14 +53,14 @@ class singleSession extends React.Component {
     render() {
         return (
             <div>
-                <Button variant="outlined" color="default" style={this.styleButton()} onClick={this.handleClick} > {this.props.uniqueSession} </Button>
+                <Button variant="outlined" color="default" style={this.styleButton()} onClick={this.handleClick} > {this.props.uniqueSession} <i class="arrow-down"></i> </Button>
                 <div style={this.buttonContainer()}> {this.getHours()} </div>
             </div>
         )
     }
     
 
-    styleButton = () => {
+    styleButton = () => { //date button
         return {
             border: '2px black solid',
             fontSize: '16px',

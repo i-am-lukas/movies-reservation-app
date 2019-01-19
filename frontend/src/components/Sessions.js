@@ -6,7 +6,7 @@ class Sessions extends React.Component {
     
     render() {
         return (
-            <div style={{ flexBasis: '90%'}} >
+            <div style={{ flexBasis: '100%'}} >
                 <div style={this.buttonContainer()}>{this.mapIt()}</div>
             </div>
         )

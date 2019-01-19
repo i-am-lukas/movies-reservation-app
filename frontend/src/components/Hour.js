@@ -26,7 +26,7 @@ class Hour extends React.Component {
             borderRight: '2px black solid',
             fontSize: '16px',
             fontWeight: '600',
-            margin: '0px'
+            marginTop: '2px'
         }
     }
 }
