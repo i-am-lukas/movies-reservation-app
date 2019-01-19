@@ -7,6 +7,7 @@ class MovieItem extends React.Component {
         movie: [],
         sessions: [],
         styling: {},
+        seats: []
     }
 
     render() {
@@ -24,8 +25,10 @@ class MovieItem extends React.Component {
                             <div style={this.requiredAge()}>Required age: {this.props.movie.minAge}</div>
                         </div> 
                     </div>
-                    <Sessions sessions={this.state.sessions} styling={this.state.styling}/>
-                    
+                    <div style={{ flexBasis: '90%'}}>
+                        <Sessions sessions={this.state.sessions} styling={this.state.styling} seats={this.state.seats}/>
+                        <div>{this.state.seats}</div>
+                    </div>
             </div>
         )
     }

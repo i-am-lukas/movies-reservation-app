@@ -7,7 +7,7 @@ class singleSession extends React.Component {
     state = {
         hours: [],
         clicked: false
-    }
+        }
     
     buttonContainer = () => {
          return (
@@ -32,17 +32,28 @@ class singleSession extends React.Component {
     
     getHours = () => {
         if(this.state.clicked){
-        var sorted = []
-        var days = this.props.sessions.filter((toArray)=> toArray.date === this.props.uniqueSession);
-        days.map((element)=>(sorted.push(element.time)))
-        sorted.sort()
-        return sorted.map((hour)=>(<Hour key={hour} hour={hour}/>))}
+        let sorted = []
+        let days = this.props.sessions.filter((arr)=> arr.date === this.props.uniqueSession);
+        days.map((element)=>(sorted.push(element)))
+        function compare(a, b) {
+            const objA= a.time;
+            const objB= b.time;
+            let comparison = 0;
+            if(objA > objB) {
+                comparison = 1;
+            } else if (objA < objB) {
+                comparison = -1;
+            }
+            return comparison
+        }
+        sorted.sort(compare)
+        return sorted.map((arrOfObj)=>(<Hour key={arrOfObj.time} hour={arrOfObj} seats={this} sessions={this.props.sessions}/>))}
     }
 
     render() {
         return (
             <div>
-                <Button variant="outlined" color="default" style={this.styleButton()} onClick={this.handleClick}> {this.props.uniqueSession} </Button>
+                <Button variant="outlined" color="default" style={this.styleButton()} onClick={this.handleClick} > {this.props.uniqueSession} </Button>
                 <div style={this.buttonContainer()}> {this.getHours()} </div>
             </div>
         )
