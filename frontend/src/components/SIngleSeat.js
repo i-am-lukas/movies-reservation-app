@@ -21,6 +21,7 @@ class SingleSeat extends React.Component{
         }
         else {
             this.setState({reserve: false})
+            this.props.reserveSeat(this.state.seatNumber, this.state.reserve)
         }
     }
 
