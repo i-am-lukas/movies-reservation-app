@@ -37,6 +37,8 @@ class MovieItem extends React.Component {
 
     renderSeats = () => {
         if (this.state.renderSeats) return <Seats seats={this.state.seats}/>
+            
+            
     }
 
     seats = (id) => {
@@ -73,7 +75,7 @@ class MovieItem extends React.Component {
             backgroundColor: '#b73135',
             padding: '15px 5px',
             fontFamily: 'Open Sans, sans-serif',
-            //justifyContent: 'space-around',
+            // justifyContent: 'space-around',
             flexWrap: 'wrap'
         }
     }

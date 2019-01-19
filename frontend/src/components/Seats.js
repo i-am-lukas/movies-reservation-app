@@ -3,15 +3,14 @@ import Button from '@material-ui/core/Button';
 import SingleSeat from './SIngleSeat'
 
 class Seats extends React.Component {
-    state = {
-        seats: [this.props.seats]
-    }
+    
+
 
     render(){
         return(
             <div>
                 <div style={this.wholeGrid()}>
-                    {this.state.seats.map((seat) => (
+                    {this.props.seats.map((seat) => (
                         <SingleSeat seat={seat}/>
                     ))}
                 </div>
@@ -24,10 +23,14 @@ class Seats extends React.Component {
     wholeGrid = () => {
         return {
             display: 'grid',
-            gridTemplateColumns: '20px 20px 20px 20px 20px 20px 20px 20px 20px 20px ',
-            gridTemplateRows: '20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px ',
+            gridTemplateColumns: '20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px ',
+            gridTemplateRows: '20px 20px 20px 20px 20px 20px 20px 20px 20px 20px  ',
             borderTop: 'solid 1px black',
-            width: '50%'
+            width: '100%',
+            justifyContent: 'center',
+            padding: '15px',
+            gridGap: '2px 2px',
+
     }
     
 }
