@@ -15,7 +15,12 @@ class Seats extends React.Component {
                 <div style={this.wholeGrid()}>
                     {this.props.seats.map(this.seatNumber)}
                 </div>
-                <div>legenda</div>
+                <div>
+                Legenda: <span style={{backgroundColor: 'rgb(46, 204, 64)'}}>X</span>-miejsce wolne 
+                {'   '}
+                <span style={{backgroundColor: 'rgb(255, 65, 54)'}}>X</span>-wybrane miejsce <br />
+                <span style={{backgroundColor: '#18191e'}}>X</span>-miejsce zajęte
+                </div>
                 <Button onClick={this.sendReservations}>Rezerwuj</Button>
             </div>
         )
@@ -54,10 +59,13 @@ class Seats extends React.Component {
             gridTemplateColumns: '20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px 20px ',
             gridTemplateRows: '20px 20px 20px 20px 20px 20px 20px 20px 20px 20px  ',
             borderTop: 'solid 1px black',
-            width: '100%',
+            width: 'auto',
             justifyContent: 'center',
-            padding: '15px',
-            gridGap: '2px 2px',
+            justifyItems: 'center',
+            alignItems: 'center',
+            paddingTop: '15px',
+            paddingBottom: '15px',
+            gridGap: '2px',
             
     }
     
