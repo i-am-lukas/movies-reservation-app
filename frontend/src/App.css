@@ -22,3 +22,40 @@ body {
   margin: 20px;
   height: 120px;
 }
+
+.movie-content-div {
+  /* justify-content: center; */
+}
+
+.movie-name {
+  font-size: 26px !important;
+}
+
+/* Media */
+
+@media only screen and (max-width: 768px) {
+  .movie-content-div {
+    display: block !important;
+  }
+
+  header {
+    font-size: 65px !important;
+  }
+
+  .moviesContainer {
+    padding: 0;
+  }
+
+  .App {
+    padding: 0 5%;
+  }
+
+  .movie-description {
+    border-left: none !important;
+  }
+
+  .image-style {
+    height: auto !important;
+    width: 200px !important;
+  }
+}

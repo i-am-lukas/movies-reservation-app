@@ -12,13 +12,13 @@ class MovieItem extends React.Component {
 
     render() {
         return (
-            <div style={this.wholeMovieDiv()} onClick={this.getSessions}>
-                    <div style={{display: 'flex', flexBasis: '100%'}}>
-                        <img src={this.props.movie.poster} style={this.imageStyle()} alt='opis zdjecia'  />
+            <div class="whole-movie-div" style={this.wholeMovieDiv()} onClick={this.getSessions}>
+                    <div class="movie-content-div" style={{display: 'flex', flexBasis: '100%'}}>
+                        <img class="image-style" src={this.props.movie.poster} style={this.imageStyle()} alt='opis zdjecia'  />
                         <div style={this.name()}>
-                            <div style={this.movieName()}>{this.props.movie.name}</div>
+                            <div class="movie-name" style={this.movieName()}>{this.props.movie.name}</div>
                         </div>
-                        <div style={ this.description() }>
+                        <div class="movie-description" style={ this.description() }>
                             <span style={{ fontSize: '20px', fontWeight: '800' }}> Description: </span>
                             <br /> <br />
                             {this.props.movie.description}
@@ -60,7 +60,7 @@ class MovieItem extends React.Component {
             backgroundColor: '#b73135',
             padding: '15px 5px',
             fontFamily: 'Open Sans, sans-serif',
-            justifyContent: 'space-around',
+            //justifyContent: 'space-around',
             flexWrap: 'wrap'
         }
     }
