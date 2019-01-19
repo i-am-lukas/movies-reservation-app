@@ -1,28 +1,27 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
+import axios from 'axios';
 
 class Hour extends React.Component {
     state = {
         seats: []
     }
+    
     render(){
         return(
             <div>
-                <Button variant="outlined" color="default" style={this.styleButton()} onFocus={this.logThat}> {this.props.hour.time} </Button>
+                <Button variant="outlined" color="default" style={this.styleButton()} onFocus={this.props.seats}> {this.props.hour.time} </Button>
             </div>
         )
     }
 
-    logThat = () => {
-        console.log(this.props.hour)
-    }
-
-    getSeats = () => {
-        console.log(this.props.sessions)
-        // axios.get('')
-        // return  this.setState({seats: [] }) (console.log(this.state.seats))
-        
-    }
+    // getSeats = () => {
+    //     // console.log(this.props.hour)
+    //     axios.get(`http://localhost:4500/seats/${this.props.hour._id}`)
+    //         // .then(res => console.log(res.data.session.seats))
+    //         .then(res => this.setState({seats: res.data.session.seats }))
+    //         .then(console.log(this.state.seats))
+    // }
     
     styleButton = () => {
         return {
