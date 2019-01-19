@@ -4,15 +4,21 @@ import axios from 'axios';
 
 class Hour extends React.Component {
     state = {
-        seats: []
+        seats: [],
+        id: ''
     }
     
     render(){
         return(
             <div>
-                <Button variant="outlined" color="default" style={this.styleButton()} onFocus={this.props.seats}> {this.props.hour.time} </Button>
+                <Button variant="outlined" color="default" style={this.styleButton()} onFocus={this.getId}> {this.props.hour.time} </Button>
             </div>
         )
+    }
+
+    getId = () => {
+        this.setState({id: this.props.hour._id})
+        this.props.seats(this.state.id)
     }
 
     // getSeats = () => {
