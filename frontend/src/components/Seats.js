@@ -24,7 +24,7 @@ class Seats extends React.Component {
         var number = this.props.seats.indexOf(seat)+1
         for(var i=1; i<=columns; i++){
             if(number<=columns*i){
-                return <SingleSeat seat={seat} number={number-columns*(i-1)} />
+                return <SingleSeat key= {number*i} seat={seat} number={number-columns*(i-1)} />
             }
         } 
     }

@@ -21,8 +21,9 @@ handleBlur = () => {
 }
 
     getId = () => {
+        console.log(this.state.id)
         this.props.seats(this.state.id)
-        this.setState({focused: true})
+        this.setState({focused: true, id: this.props.hour._id})
     }
 
     unFocus = () => {
