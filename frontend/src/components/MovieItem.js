@@ -43,8 +43,7 @@ class MovieItem extends React.Component {
         this.setState({renderSeats: true})
         console.log('Hour was clicked and triggered function!')
         axios.get(`http://localhost:4500/seats/${id}`)
-            .then(res => this.setState({seats: res.data.session.seats}))
-        console.log(this.state.seats)
+            .then(res => this.setState({seats: res.data.session.seats}, () => console.log(this.state.seats)))
     }
 
     getSessions = (prevProps) => {

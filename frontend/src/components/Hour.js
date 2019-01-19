@@ -11,7 +11,7 @@ class Hour extends React.Component {
     render(){
         return(
             <div>
-                <Button variant="outlined" color="default" style={this.styleButton()} onBlur={this.handleBlur} onFocus={this.getId}> {this.props.hour.time} </Button>
+                <Button variant="outlined" color="default" style={this.styleButton()} onFocus={this.getId} onBlur={this.unFocus}> {this.props.hour.time} </Button>
             </div>
         )
     }
@@ -24,10 +24,13 @@ handleBlur = () => {
         this.props.seats(this.state.id)
         this.setState({focused: true})
     }
+
+    unFocus = () => {
+        this.setState({focused: false})
+    }
     
     styleButton = () => {
-
-        if(!this.state.focused)return {
+        return {
             border: '2px black solid',
             fontSize: '16px',
             fontWeight: '600',
