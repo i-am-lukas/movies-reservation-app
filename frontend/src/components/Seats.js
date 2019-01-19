@@ -16,10 +16,10 @@ class Seats extends React.Component {
                     {this.props.seats.map(this.seatNumber)}
                 </div>
                 <div>
-                Legenda: <span style={{backgroundColor: 'rgb(46, 204, 64)'}}>X</span>-miejsce wolne 
+                Legenda: <span style={{backgroundColor: 'rgb(46, 204, 64)'}}>X</span>-free seat 
                 {'   '}
-                <span style={{backgroundColor: 'rgb(255, 65, 54)'}}>X</span>-wybrane miejsce <br />
-                <span style={{backgroundColor: '#18191e'}}>X</span>-miejsce zajęte
+                <span style={{backgroundColor: 'rgb(255, 65, 54)'}}>X</span>-chosen seat <br />
+                <span style={{backgroundColor: '#18191e'}}>X</span>-seat occupied 
                 </div>
                 <Button style={this.styleBtn()} onClick={this.sendReservations}>Rezerwuj</Button>
             </div>
